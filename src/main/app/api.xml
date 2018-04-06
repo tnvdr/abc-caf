@@ -15,9 +15,7 @@ http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/fil
     <http:listener-config name="api-httpListenerConfig" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
     <apikit:config name="api-config" raml="api.raml" consoleEnabled="false" doc:name="Router" keepRamlBaseUri="false"/>
     <jms:activemq-connector name="Active_MQ" username="admin" password="admin" brokerURL="tcp://localhost:61616" validateConnections="true" doc:name="Active MQ"/>
-    <jms:activemq-connector name="Active_MQ1" username="admin" password="admin" brokerURL="tcp://localhost:61616" validateConnections="true" doc:name="Active MQ"/>
-    <sfdc:config name="Salesforce__Basic_Authentication" username="dhanaraju@whishworks.com" password="salesforce@1" securityToken="X67r2jNj8yg1rTdN1WKuKOdD" doc:name="Salesforce: Basic Authentication"/>
-    <db:mysql-config name="MySQL_Configuration" host="localhost" port="3306" user="root" password="whishworks_123" database="employee" doc:name="MySQL Configuration"/>
+    <db:mysql-config name="MySQL_Configuration" host="${db.host}" port="${db.port}" user="${db.user}" password="${db.password}" database="employee" doc:name="MySQL Configuration"/>
 
     <flow name="api-main">
         <http:listener config-ref="api-httpListenerConfig" path="/api/*" doc:name="HTTP"/>
